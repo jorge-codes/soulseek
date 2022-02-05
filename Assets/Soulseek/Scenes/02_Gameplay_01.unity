@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 32436674}
   - component: {fileID: 32436675}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -374,7 +374,7 @@ GameObject:
   m_Component:
   - component: {fileID: 462924092}
   - component: {fileID: 462924093}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -767,10 +767,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1379636212}
   - component: {fileID: 1379636211}
-  - component: {fileID: 1379636210}
   - component: {fileID: 1379636209}
+  - component: {fileID: 1379636210}
+  - component: {fileID: 1379636214}
   - component: {fileID: 1379636213}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -789,14 +790,14 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 8.96
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 2
-  m_Material: {fileID: 0}
+  m_GravityScale: 3
+  m_Material: {fileID: 6200000, guid: 6ad4d079894ec45c49c70a30ff4b3546, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &1379636210
 BoxCollider2D:
@@ -811,7 +812,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.17}
+  m_Offset: {x: 0, y: 0.041214198}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -822,7 +823,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.93}
+  m_Size: {x: 0.22794154, y: 0.43247324}
   m_EdgeRadius: 0
 --- !u!212 &1379636211
 SpriteRenderer:
@@ -861,8 +862,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -350536155
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: abd635c4b7bfd49188aa2fb98d573424, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -903,9 +904,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46add0bbcef8460cb4495902183ca3c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerPlatformName: Platform
+  layerWallName: Wall
+  layerItemName: Item
   rigidBody: {fileID: 1379636209}
-  speed: 16.5
-  jump: 66
+  speed: 86
+  jumpForce: 8
+  spriteRenderers:
+  - {fileID: 32436675}
+  - {fileID: 2079595004}
+  - {fileID: 462924093}
+--- !u!58 &1379636214
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379636208}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.55}
+  serializedVersion: 2
+  m_Radius: 0.08796853
 --- !u!1001 &1410188589
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -972,7 +996,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1515583740}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1119,7 +1143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2079595003}
   - component: {fileID: 2079595004}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Jaw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
