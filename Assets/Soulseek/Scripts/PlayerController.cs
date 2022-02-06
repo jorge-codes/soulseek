@@ -1,7 +1,4 @@
-
-using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Soulseek
 {
@@ -10,16 +7,24 @@ namespace Soulseek
         [SerializeField] private string layerPlatformName = "Platform";
         [SerializeField] private string layerWallName = "Wall";
         [SerializeField] private string layerItemName = "Item";
+        [SerializeField] private string animationWalkBool = "IsWalking";
         [Space(3)]
+        [SerializeField] private Animator animator = null;
+        [SerializeField] private AudioSource audioSource;
         [SerializeField] private Rigidbody2D rigidBody;
-        [SerializeField] private float speed = 0.5f;
-        [FormerlySerializedAs("jump")] [SerializeField] private float jumpForce = 100f;
+        [SerializeField] private float speed = 0.5f; 
+        [SerializeField] private float jumpForce = 100f;
         [Space(3)] [SerializeField] private SpriteRenderer[] spriteRenderers;
         private Vector2 direction;
-        private bool oldJump;
-        private bool newJump;
         private int layerPlatform;
         private float mass;
+        private Vector3 initialPosition;
+
+        public void GoBackToInitialPosition()
+        {
+            rigidBody.velocity = Vector3.zero;
+            gameObject.transform.position = initialPosition;
+        }
 
         private void Awake()
         {
@@ -27,6 +32,8 @@ namespace Soulseek
             {
                 Debug.LogError("No rigidbody assigned");
             }
+
+            initialPosition = transform.position;
         }
 
         private void Start()
@@ -37,25 +44,17 @@ namespace Soulseek
         private void Update()
         {
             var horizontal = (int)Input.GetAxisRaw("Horizontal");
+            animator.SetBool(animationWalkBool, horizontal != 0);
             AdjustForward(horizontal, (int)direction.x);
             direction.x = horizontal;
             
             if (Input.GetButtonDown("Jump"))
             {
+                audioSource.Play();
                 rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             }
         }
-        
 
-        private void OnCollisionEnter2D(Collision2D col)
-        {
-            
-        }
-
-        private void OnCollisionExit2D(Collision2D other)
-        {
-        
-        }
 
         private void FixedUpdate()
         {
@@ -70,7 +69,6 @@ namespace Soulseek
         {
             mass = rigidBody.mass;
             layerPlatform = LayerMask.NameToLayer("Platform");
-            newJump = oldJump = false;
         }
 
         public void AdjustForward(int horizontalNew, int horizontalOld)

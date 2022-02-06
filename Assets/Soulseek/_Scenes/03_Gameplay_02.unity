@@ -981,7 +981,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5619634123797493425, guid: faaeb860bcf3a4bf985a719df2e6f97c, type: 3}
       propertyPath: nextLevel
-      value: 99_End
+      value: 04_Gameplay_03
       objectReference: {fileID: 0}
     - target: {fileID: 5619634123797493425, guid: faaeb860bcf3a4bf985a719df2e6f97c, type: 3}
       propertyPath: soulFragments.Array.size

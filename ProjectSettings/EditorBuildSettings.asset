@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Soulseek/_Scenes/03_Gameplay_02.unity
     guid: 3600a619cc7164ced81bfa1d9c6a87ed
   - enabled: 1
+    path: Assets/Soulseek/_Scenes/04_Gameplay_03.unity
+    guid: 16ab4cfa4547942ec9d89ae3cf0bb6bc
+  - enabled: 1
     path: Assets/Soulseek/_Scenes/99_End.unity
     guid: f13e1a38f4dd84737a2e1c1ad8b498ae
   m_configObjects: {}
